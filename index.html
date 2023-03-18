@@ -7,10 +7,10 @@
 
 	<!-- Instructions for users -->
 	<p>Drag this link to your bookmarks:</p>
-	<a href="javascript:(function()%7Bvar%20imgUrl%20%3D%20prompt('Enter the URL of the image you want to use')%3B%20if%20(imgUrl)%20%7Bfunction%20replaceWithImage(el)%7Bif%20(el.offsetWidth%20%3E%200%20%26%26%20el.offsetHeight%20%3E%200%20%26%26%20el.style.display%20!%3D%3D%20'none')%20%7Bif%20(el.tagName%20%3D%3D%20'IMG')%20%7Bel.src%20%3D%20imgUrl%3B%20%7D%20else%20%7Bvar%20img%20%3D%20new%20Image()%3B%20img.onload%20%3D%20function()%20%7Bel.style.backgroundImage%20%3D%20'url('%20%2B%20imgUrl%20%2B%20')'%3B%20var%20ratio%20%3D%20Math.min(el.offsetWidth%20/%20img.width,%20el.offsetHeight%20/%20img.height)%3B%20el.style.backgroundSize%20%3D%20(ratio%20*%20img.width)%20+%20'px%20'%20+%20(ratio%20*%20img.height)%20+%20'px'%3B%7D%3B%20img.onerror%20%3D%20function()%20%7Bel.style.backgroundImage%20%3D%20'url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Dialog-error-round.svg/1024px-Dialog-error-round.svg.png)';%20el.style.backgroundSize%20%3D%20'contain'%3B%7D%3B%20img.src%20%3D%20imgUrl%3B%7D%7D%20%7D%7Dvar%20all%20%3D%20document.getElementsByTagName('*')%3B%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20all.length%3B%20i%2B%2B)%20%7B%20replaceWithImage(all%5Bi%5D)%3B%20%7D%20alert('Here is an example image: '%20+%20imgUrl%20+%20'. Note that low-res PNGs work best.');%7D%7D)()">Custom Image Bookmarklet</a>
+	<a href="javascript:(function()%7Bvar%20imgUrl%20%3D%20prompt('Enter the URL of the image you want to use')%3B%20if%20(imgUrl)%20%7Bfunction%20replaceWithImage(el)%7Bif%20(el.tagName%20%3D%3D%20'IMG')%20%7Bel.src%20%3D%20imgUrl%3B%20%7D%20else%20%7Bvar%20img%20%3D%20new%20Image()%3B%20img.onload%20%3D%20function()%20%7Bel.style.backgroundImage%20%3D%20'url('%20%2B%20encodeURIComponent(imgUrl)%20%2B%20')'%3B%20el.style.backgroundSize%20%3D%20'cover'%3B%7D%3B%20img.src%20%3D%20imgUrl%3B%7D%7D%20var%20all%20%3D%20document.querySelectorAll('*%3Anot(html)%20%3Anot(body)%20%3Anot(script)%20%3Anot(style)')%3B%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20all.length%3B%20i%2B%2B)%20%7B%20replaceWithImage(all%5Bi%5D)%3B%20%7D%20%7D%7D)()">Custom Image Bookmarklet</a>
 
 	<!-- Some sample text and images to replace -->
-	<h1>Some heading text</h1>
+	<h1>Here is an example image:</h1>
 	<p>Here is some sample text with an <img src="https://via.placeholder.com/150"> image.</p>
 	<div style="width: 300px; height: 200px; background-color: red;"></div>
 	<span style="font-size: 24px; color: blue;">Some text in a span element</span>
