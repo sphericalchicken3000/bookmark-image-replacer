@@ -7,10 +7,10 @@
 
 	<!-- Instructions for users -->
 	<p>Drag this link to your bookmarks:</p>
-	<a href="javascript:(function()%7Bvar%20imgUrl%20%3D%20prompt('Enter the URL of the image you want to use')%3B%20if%20(imgUrl)%20%7Bvar%20includeInvisible%20%3D%20confirm('Include invisible elements?')%3B%20function%20replaceWithImage(el)%7Bif%20(el.tagName%20%3D%3D%20'IMG')%20%7Bel.src%20%3D%20imgUrl%3B%20%7D%20else%20if%20(includeInvisible%20%7C%7C%20(el.offsetWidth%20%3E%200%20%26%26%20el.offsetHeight%20%3E%200%20%26%26%20el.style.visibility%20!%3D%3D%20'hidden'))%20%7Bvar%20img%20%3D%20new%20Image()%3B%20img.onload%20%3D%20function()%20%7Bel.style.backgroundImage%20%3D%20'url('%20%2B%20imgUrl%20%2B%20')'%3B%20el.style.backgroundSize%20%3D%20'cover'%3B%7D%3B%20img.src%20%3D%20imgUrl%3B%7D%20else%20if%20(!includeInvisible)%20%7Bel.innerHTML%20%3D%20'Here%20is%20an%20example%20image%3A%20%3Cimg%20src%3D%22https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2015%2F04%2F23%2F22%2F00%2Ftree-736885_960_720.jpg%22%3E%3Cp%3ELow-resolution%20PNG%20images%20work%20best%3C%2Fp%3E'%3B%7D%7D%20var%20all%20%3D%20document.getElementsByTagName('*')%3B%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20all.length%3B%20i%2B%2B)%20%7B%20replaceWithImage(all%5Bi%5D)%3B%20%7D%20%7D%7D)()">Custom Image Bookmarklet</a>
+	<a href="javascript:(function()%7Bvar%20imgUrl%20%3D%20prompt('Enter the URL of the image you want to use')%3B%20if%20(imgUrl)%20%7Bvar%20excludeInvisible%20%3D%20confirm('Do you want to exclude invisible elements%3F')%3Bfunction%20replaceWithImage(el)%7Bif%20(el.offsetWidth%20%3E%200%20%26%26%20el.offsetHeight%20%3E%200%20%26%26%20(!excludeInvisible%20%7C%7C%20el.offsetParent%20!%3D%3D%20null))%20%7Bif%20(el.tagName%20%3D%3D%20'IMG')%20%7Bel.src%20%3D%20imgUrl%3B%20%7D%20else%20%7Bvar%20img%20%3D%20new%20Image()%3B%20img.onload%20%3D%20function()%20%7Bel.style.backgroundImage%20%3D%20'url('%20%2B%20imgUrl%20%2B%20')'%3B%20el.style.backgroundSize%20%3D%20'cover'%3B%7D%3B%20img.src%20%3D%20imgUrl%3B%7D%7D%7D%20var%20all%20%3D%20document.getElementsByTagName('*')%3B%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20all.length%3B%20i%2B%2B)%20%7B%20replaceWithImage(all%5Bi%5D)%3B%20%7D%20%7D%7D)()">Custom Image Bookmarklet</a>
 
 	<!-- Some sample text and images to replace -->
-	<h1>Some heading text</h1>
+	<h1>Here is an example image:</h1>
 	<p>Here is some sample text with an <img src="https://via.placeholder.com/150"> image.</p>
 	<div style="width: 300px; height: 200px; background-color: red;"></div>
 	<span style="font-size: 24px; color: blue;">Some text in a span element</span>
