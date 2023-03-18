@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Randomized Hyperlink Example</title>
+</head>
+<body>
+	<h1>Randomized Hyperlink Example</h1>
+	<p>Drag the link below to your bookmarks bar to apply random transformations to every element on any website:</p>
+	<a href="javascript:(function(){var allElements=document.getElementsByTagName('*');for(var i=0;i<allElements.length;i++){var element=allElements[i];var rotate=parseFloat(element.getAttribute('data-rotate'))||0;var scaleX=parseFloat(element.getAttribute('data-scale-x'))||1;var scaleY=parseFloat(element.getAttribute('data-scale-y'))||1;rotate+=Math.random()*20-10;scaleX+=Math.random()*0.2-0.1;scaleY+=Math.random()*0.2-0.1;element.setAttribute('data-rotate',rotate);element.setAttribute('data-scale-x',scaleX);element.setAttribute('data-scale-y',scaleY);element.style.transform='rotate('+rotate+'deg) scaleX('+scaleX+') scaleY('+scaleY+')';}})();">Random Transformations</a>
+</body>
+</html>
