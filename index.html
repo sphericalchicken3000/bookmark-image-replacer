@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom Image Bookmarklet</title>
+</head>
+<body>
+
+	<!-- Instructions for users -->
+	<p>Drag this link to your bookmarks (small png images work best):</p>
+	<a href="javascript:(function()%7Bvar%20imgUrl%20%3D%20window.prompt('Enter the URL of the image you want to use')%3B%20if%20(imgUrl)%20%7Bfunction%20replaceWithImage(el)%7Bif%20(el.tagName%20%3D%3D%20'IMG')%20%7Bel.src%20%3D%20imgUrl%3B%20%7D%20else%20if%20(!el.style.backgroundImage)%20%7Bvar%20img%20%3D%20new%20Image()%3B%20img.onload%20%3D%20function()%20%7Bel.style.backgroundImage%20%3D%20'url('%20%2B%20imgUrl%20%2B%20')'%3B%20el.style.backgroundSize%20%3D%20'cover'%3B%7D%3B%20img.src%20%3D%20imgUrl%3B%7D%7D%20var%20all%20%3D%20document.getElementsByTagName('*')%3B%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20all.length%3B%20i%2B%2B)%20%7B%20replaceWithImage(all%5Bi%5D)%3B%20%7D%20%7D%7D)()">Custom Image Bookmarklet</a>
+
+	<!-- Some sample text and images to replace -->
+	<h1>Some heading text</h1>
+	<p>Here is some sample text and an example image <img src="https://via.placeholder.com/150"> </p>
+	<div style="width: 300px; height: 200px; background-color: red;"></div>
+	<span style="font-size: 24px; color: blue;">Some text in a span element</span>
+
+</body>
+</html>
